@@ -18,16 +18,16 @@ struct ContentView: View {
                 Title("My tile")
                 Meta(
                     name: "viewport",
-                    content: "width=device-width, initial-scale=0.9, maximum-scale=5.0, user-scalable=1"
+                    content: "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=1"
                 )
             }
             WebBody {
-                H1("This is a heading!")
+                H1("Mac models")
                 if isValidStringURL(imageUrl) {
-                    P("Flareon")
+                    P("Mac models")
                     Img(url: imageUrl)
-                        .alt(text: "This is flareon")
-                        .style(width: 100, height: 100)
+                        .alt(text: "This is Macbook pro")
+                        .style(width: Int(UIScreen.main.bounds.width/2), height: 100)
                 } else {
                     P("No image")
                 }

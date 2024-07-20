@@ -14,7 +14,7 @@ struct Table: HtmlTag {
     }
     
     func render() -> String {
-        "<table> <style> table { border: 1px solid;} </style>" +
+        "<table>" +
         rows
             .map { $0.render() }
             .joined() +

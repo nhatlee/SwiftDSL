@@ -35,7 +35,7 @@ func isValidStringURL(_ string: String) -> Bool {
     URL(string: string) != nil
 }
 
-let imageUrl = "https://img.pokemondb.net/artwork/large/flareon.jpg"
+let imageUrl = "https://media.sketchfab.com/models/6a42b31bac064b00a91fbfebec07c852/thumbnails/11b24996ec7d41fbbbe0eac1096c3b47/bd2e09523e57484e96a3caa7e4961aea.jpeg"
 
 struct WebView_Previews: PreviewProvider {
     static var previews: some View {
@@ -44,16 +44,16 @@ struct WebView_Previews: PreviewProvider {
                 Title("My tile")
                 Meta(
                     name: "viewport",
-                    content: "width=device-width, initial-scale=0.9, maximum-scale=5.0, user-scalable=1"
+                    content: "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=1"
                 )
             }
             WebBody {
-                H1("This is a heading!")
+                H1("Mac models")
                 if isValidStringURL(imageUrl) {
-                    P("Flareon")
+                    P("Mac models")
                     Img(url: imageUrl)
-                        .alt(text: "This is flareon")
-                        .style(width: 100, height: 100)
+                        .alt(text: "This is Macbook pro")
+                        .style(width: Int(UIScreen.main.bounds.width), height: 100)
                 } else {
                     P("No image")
                 }
@@ -109,12 +109,12 @@ extension Mac {
         .init(type: "DeskTop", name: "MacMini2020", categorry: .mini, powerAdapter: "--", price: 600, year: "2020", cpu: "M1"),
         .init(type: "DeskTop", name: "MacMini2022", categorry: .mini, powerAdapter: "--", price: 700, year: "2022", cpu: "M2"),
         .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1000, year: "2023", cpu: "M3"),
-        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1500, year: "2023", cpu: "M3 Pro"),
-        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2023", cpu: "M3 Pro"),
-        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2020", cpu: "M3 Max"),
-        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3000, year: "2022", cpu: "M2 Max"),
-        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3500, year: "2022", cpu: "M2 Ultra"),
-        .init(type: "DeskTop", name: "MacPro", categorry: .pro, powerAdapter: "--", price: 6000, year: "2023", cpu: "M2 Ultra")
+        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1500, year: "2023", cpu: "M3Pro"),
+        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2023", cpu: "M3Pro"),
+        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2020", cpu: "M3Max"),
+        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3000, year: "2022", cpu: "M2Max"),
+        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3500, year: "2022", cpu: "M2Ultra"),
+        .init(type: "DeskTop", name: "MacPro", categorry: .pro, powerAdapter: "--", price: 6000, year: "2023", cpu: "M2Ultra")
     ]
 }
 
