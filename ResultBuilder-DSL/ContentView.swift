@@ -31,25 +31,25 @@ struct ContentView: View {
                 } else {
                     P("No image")
                 }
-                P("Moves learnt by level up!")
+                P("The list of Mac devices")
                 Table {
                     Tr {
                         Th("Type")
                         Th("Name")
-                        Th("Cat.")
+//                        Th("Cat.")
                         Th("Power")
                         Th("Price")
-                        Th("Year")
+//                        Th("Year")
                         Th("CPU")
                     }
                     for row in Mac.sample {
                         Tr {
                             Td(row.type)
                             Td(row.name)
-                            Td(row.categorry.rawValue)
+//                            Td(row.categorry.rawValue)
                             Td(row.powerAdapter)
                             Td(row.price)
-                            Td(row.year)
+//                            Td(row.year)
                             Td(row.cpu)
                         }
                     }

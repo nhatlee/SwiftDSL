@@ -87,11 +87,11 @@ struct WebView_Previews: PreviewProvider {
 
 // Mark: Mac
 enum MacCategory: String {
-    case macbookPro = "Macbook Pro"
-    case air = "Macbook Air"
-    case mini = "Mac Mini"
-    case pro = "Mac Pro"
-    case studio = "Mac Studio"
+    case macbookPro = "MacbookPro"
+    case air = "MacbookAir"
+    case mini = "MacMini"
+    case pro = "MacPro"
+    case studio = "MacStudio"
 }
 
 struct Mac {
@@ -99,23 +99,29 @@ struct Mac {
     let name: String
     let categorry: MacCategory
     let powerAdapter: String
-    let price: Double
+    let price: String
     let year: String
     let cpu: String
 }
 
 extension Mac {
     static let sample: [Self] = [
-        .init(type: "DeskTop", name: "MacMini2020", categorry: .mini, powerAdapter: "--", price: 600, year: "2020", cpu: "M1"),
-        .init(type: "DeskTop", name: "MacMini2022", categorry: .mini, powerAdapter: "--", price: 700, year: "2022", cpu: "M2"),
-        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1000, year: "2023", cpu: "M3"),
-        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1500, year: "2023", cpu: "M3Pro"),
-        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2023", cpu: "M3Pro"),
-        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000, year: "2020", cpu: "M3Max"),
-        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3000, year: "2022", cpu: "M2Max"),
-        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3500, year: "2022", cpu: "M2Ultra"),
-        .init(type: "DeskTop", name: "MacPro", categorry: .pro, powerAdapter: "--", price: 6000, year: "2023", cpu: "M2Ultra")
+      .init(type: "DeskTop", name: "MacMini2020", categorry: .mini, powerAdapter: "--", price: 600.formatMoney(), year: "2020", cpu: "M1"),
+        .init(type: "DeskTop", name: "MacMini2022", categorry: .mini, powerAdapter: "--", price: 700.formatMoney(), year: "2022", cpu: "M2"),
+        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1000.formatMoney(), year: "2023", cpu: "M3"),
+        .init(type: "Laptop", name: "MacbookPro14", categorry: .macbookPro, powerAdapter: "64w", price: 1500.formatMoney(), year: "2023", cpu: "M3Pro"),
+        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000.formatMoney(), year: "2023", cpu: "M3Pro"),
+        .init(type: "Laptop", name: "MacbookPro16", categorry: .macbookPro, powerAdapter: "94w", price: 2000.formatMoney(), year: "2020", cpu: "M3Max"),
+        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3000.formatMoney(), year: "2022", cpu: "M2Max"),
+        .init(type: "DeskTop", name: "MacStudio", categorry: .studio, powerAdapter: "--", price: 3500.formatMoney(), year: "2022", cpu: "M2Ultra"),
+        .init(type: "DeskTop", name: "MacPro", categorry: .pro, powerAdapter: "--", price: 6000.formatMoney(), year: "2023", cpu: "M2Ultra")
     ]
+}
+
+extension Int {
+  func formatMoney() -> String {
+    "\(self)$"
+  }
 }
 
 
