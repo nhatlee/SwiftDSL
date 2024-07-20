@@ -13,43 +13,47 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        WebView {
+            Head {
+                Title("My tile")
+                Meta(
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=0.9, maximum-scale=5.0, user-scalable=1"
+                )
+            }
+            WebBody {
+                H1("This is a heading!")
+                if isValidStringURL(imageUrl) {
+                    P("Flareon")
+                    Img(url: imageUrl)
+                        .alt(text: "This is flareon")
+                        .style(width: 100, height: 100)
+                } else {
+                    P("No image")
+                }
+                P("Moves learnt by level up!")
+                Table {
+                    Tr {
+                        Th("Type")
+                        Th("Name")
+                        Th("Cat.")
+                        Th("Power")
+                        Th("Price")
+                        Th("Year")
+                        Th("CPU")
+                    }
+                    for row in Mac.sample {
+                        Tr {
+                            Td(row.type)
+                            Td(row.name)
+                            Td(row.categorry.rawValue)
+                            Td(row.powerAdapter)
+                            Td(row.price)
+                            Td(row.year)
+                            Td(row.cpu)
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
             }
         }
     }
