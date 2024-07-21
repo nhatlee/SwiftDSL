@@ -14,6 +14,6 @@ struct Td<Value: CustomStringConvertible>: HtmlTag {
     }
     
     func render() -> String {
-        "<td style='text-align:center; vertical-align:middle; height: 50px; width:200px'>" + data.description + "</td>"
+        "<td style='width:200px'>" + data.description + "</td>"
     }
 }

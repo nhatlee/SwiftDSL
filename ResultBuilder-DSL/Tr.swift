@@ -14,7 +14,7 @@ struct Tr: HtmlTag {
     }
     
     func render() -> String {
-        "<tr> <style> tr:nth-child(even) { background-color: #dddddd;}</style>" +
+        "<tr style='height: 50px; text-align:center'> <style> tr:nth-child(even) { background-color: #dddddd;}</style>" +
         columns
             .map { $0.render() }
             .joined() +

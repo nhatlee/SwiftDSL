@@ -14,6 +14,6 @@ struct Th: HtmlTag {
     }
     
     func render() -> String {
-        "<th style='text-align:center; vertical-align:middle; height: 50px; background-color: #dddddd; width:200px'>" + title + "</th>"
+        "<th style='width:200px; background-color: #dddddd'>" + title + "</th>"
     }
 }
